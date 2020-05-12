@@ -30,6 +30,7 @@ public class LogInEmployee {
 				Employee.empMenu();
 			}else {
 				conditionCheck = false;
+				
 				System.out.println("Incorrect user name or password please try again");
 				System.out.println("-------------------------------------------------");
 				

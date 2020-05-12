@@ -15,19 +15,20 @@ public class CustomerMethods {
 	static String customerName;
 	static String customerPassword;
 	static int var;
+	public static int globalBool=1;
 public static void insertCustomer () {
 	
-		/*System.out.println("1) To create a new user");
+		System.out.println("1) To create a new user");
 		System.out.println("2) Already a user?");
 		var = data.nextInt();
 		
 		switch(var) {
-		case 1:*/
+		case 1:
 			System.out.println("Insert User Name: ");
-			customerName = data.nextLine();
+			customerName = data.next();
 			
 			System.out.println("Insert User Last name: ");
-			customerPassword = data.nextLine();
+			customerPassword = data.next();
 		
 			System.out.println("User has been created");
 			
@@ -41,21 +42,7 @@ public static void insertCustomer () {
 			
 			//customer info
 			try {
-				System.out.println(cdi.getCustomer(customerId, customerName, customerName));
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Customer.customerMenu();
-		/*break;
-		
-		case 2:
-			System.out.println("Insert user ID");
-			customerId= data.nextInt();
-			//customer info
-			try {
-				System.out.println(cdi.getCustomer());
+				System.out.println(cdi.getCustomer(customerId, customerName, customerPassword));
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -63,7 +50,22 @@ public static void insertCustomer () {
 			}
 			Customer.customerMenu();
 		break;
-		}*/
+		
+		case 2:
+			
+			System.out.println("insert user id");
+			customerId= data.nextInt();
+			//customer info
+			try {
+				System.out.println(cdi.getCustomer(customerId, customerName, customerName));
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Customer.customerMenu();
+		break;
+		}
 		
 
 		

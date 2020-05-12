@@ -40,7 +40,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			
 			Statement stmt = conn.createStatement();
 			System.out.println("Your customer information is");
-			ResultSet rs = stmt.executeQuery("SELECT CUSTOMER_ID, CUSTOMER_NAME, CUSTOMER_LAST_NAME FROM CUSTOMER WHERE (CUSTOMER_NAME='"+customerName+"') AND (CUSTOMER_LAST_NAME='"+customerPassword+"')");
+			ResultSet rs = stmt.executeQuery("SELECT CUSTOMER_ID, CUSTOMER_NAME, CUSTOMER_LAST_NAME FROM CUSTOMER WHERE (CUSTOMER_NAME='"+customerName+"' AND CUSTOMER_LAST_NAME='"+customerPassword+"')");
 			Customer s =null;
 			while(rs.next()) {
 				s = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3));

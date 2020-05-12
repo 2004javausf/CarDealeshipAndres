@@ -1,5 +1,5 @@
 package com.revature.util;
-import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class TestLogger {
 	
@@ -7,7 +7,7 @@ public class TestLogger {
 
 	public static void main(String[] args) {
 		
-
+		
 	}
 
 }

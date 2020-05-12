@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.revature.util.CustomerMethods;
 
 public class LogInCustomer {
+	
 	public void LogInMethod() {
 		
 		System.out.println("WELCOME TO THE CUSTOMER PORTAL");
