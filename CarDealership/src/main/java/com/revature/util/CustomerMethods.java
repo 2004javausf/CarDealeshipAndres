@@ -30,7 +30,6 @@ public static void insertCustomer () {
 			System.out.println("Insert User Last name: ");
 			customerPassword = data.next();
 		
-			System.out.println("User has been created");
 			
 			try {
 				cdi.createCustomer(customerId, customerName, customerPassword);
@@ -42,8 +41,8 @@ public static void insertCustomer () {
 			
 			//customer info
 			try {
-				System.out.println(cdi.getCustomer(customerId, customerName, customerPassword));
-				
+				//System.out.println(cdi.getCustomer(customerId, customerName, customerPassword));
+				LogThis.LogIt("info", cdi.getCustomer(customerId, customerName, customerPassword)+"User Successfully Created");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -57,8 +56,8 @@ public static void insertCustomer () {
 			customerId= data.nextInt();
 			//customer info
 			try {
-				System.out.println(cdi.getCustomer(customerId, customerName, customerName));
-				
+				//System.out.println(cdi.getCustomer(customerId, customerName, customerName));
+				LogThis.LogIt("info", cdi.getCustomer(customerId, customerName, customerPassword)+"User logged in with his ID");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -66,8 +65,6 @@ public static void insertCustomer () {
 			Customer.customerMenu();
 		break;
 		}
-		
-
 		
 		
 		

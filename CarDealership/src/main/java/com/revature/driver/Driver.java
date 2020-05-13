@@ -9,6 +9,7 @@ import com.revature.users.LogInEmployee;
 
 
 
+
 public class Driver {
 	
 	public static void main(String[] args) {
@@ -16,7 +17,9 @@ public class Driver {
 		
 		
 		LogInCustomer input = new LogInCustomer();
+		
 		LogInEmployee input2 = new LogInEmployee();
+		
 		Scanner scan = new Scanner(System.in);
 		int op;
 		

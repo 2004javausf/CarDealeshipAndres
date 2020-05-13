@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import com.revature.util.CustomerMethods;
 
+
+
 public class LogInCustomer {
 	
 	public void LogInMethod() {

@@ -8,6 +8,7 @@ import java.util.Scanner;
 import com.revature.driver.Driver;
 import com.revature.util.CarMethods;
 import com.revature.util.ConnFactory;
+import com.revature.util.LogThis;
 
 public class Customer {
 	public static ConnFactory cf= ConnFactory.getInstance();
@@ -34,7 +35,7 @@ public class Customer {
 		System.out.println("[6] Go back to Main Menu");
 		System.out.println("------------------------");
 		choice = op.nextInt();
-	
+		
 		
 		switch(choice) {
 		case 1:
