@@ -12,6 +12,7 @@ import java.util.Scanner;
 import com.revature.beans.Cars;
 import com.revature.beans.Customer;
 import com.revature.beans.Offers;
+import com.revature.beans.OwnedCars;
 import com.revature.beans.Payments;
 import com.revature.dao.CarDAO;
 import com.revature.util.ConnFactory;
@@ -145,12 +146,12 @@ public class CarDaoImpl implements CarDAO {
 				//READ My Payments
 				public List<Payments> getMyPayments() throws SQLException {
 						List <Payments> paymentList = new ArrayList <Payments>();
-						System.out.println("Insert car ID");
-						int carId = s.nextInt();
+						System.out.println("Insert User ID");
+						int userId = s.nextInt();
 						Connection conn= cf.getConnection();
 						
 						Statement stmt = conn.createStatement();
-						ResultSet rs = stmt.executeQuery("SELECT * FROM PAYMENTS WHERE (CAR_ID="+carId+")");
+						ResultSet rs = stmt.executeQuery("SELECT * FROM PAYMENTS WHERE (CUSTOMER_ID="+userId+")");
 						Payments s =null;
 						while(rs.next()) {
 							s = new Payments(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getFloat(4), rs.getFloat(5), rs.getFloat(6));
@@ -159,18 +160,29 @@ public class CarDaoImpl implements CarDAO {
 						return paymentList;
 					}
 				
+				public void insertOwnedCars(int carId, int customerid, String carBrand, int carModelYear) throws SQLException {
+					
+					Connection conn= cf.getConnection();
+					Statement stmt = conn.createStatement();
+				 
+					String sql="INSERT INTO CAR_OWNED (CAR_ID, CUSTOMER_ID, CAR_BRAND, CAR_YEAR) SELECT CAR_ID, CUSTOMER_ID, CAR_BRAND, CAR_YEAR FROM CUSTOMER, CAR";
+					stmt.executeUpdate(sql);
+					
+					
+				}
+				
 				//READ My Cars
-				public List<Payments> getMyCars() throws SQLException {
-						List <Payments> customerPayment = new ArrayList <Payments>();
+				public List<OwnedCars> getMyCars() throws SQLException {
+						List <OwnedCars> customerPayment = new ArrayList <OwnedCars>();
 						System.out.println("Insert user ID");
-						userId = s.nextInt();
-						Connection conn= cf.getConnection();
+						int customerid = s.nextInt();
+						Connection conn= cf.getConnection();	
 						
 						Statement stmt = conn.createStatement();
-						ResultSet rs = stmt.executeQuery("SELECT * FROM PAYMENTS, CAR WHERE (CUSTOMER_ID="+userId+")");
-						Payments s =null;
+						ResultSet rs = stmt.executeQuery("SELECT * FROM CAR_OWNED WHERE (CUSTOMER_ID="+customerid+")");
+						OwnedCars s =null;
 						while(rs.next()) {
-							s = new Payments(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getFloat(4), rs.getFloat(5), rs.getFloat(6));
+							s = new OwnedCars(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
 							customerPayment.add(s);
 						}
 						return customerPayment;

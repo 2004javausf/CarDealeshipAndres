@@ -67,6 +67,7 @@ public class CarMethods {
 	public static void getMyPayments () {
 		
 		try {
+			sdi.insertOwnedCars(id, id, brand, year);
 			System.out.println(sdi.getMyPayments());
 			
 			
